@@ -1,5 +1,6 @@
 using INFNETPBVENDADECARROS.Models;
 using INFNETPBVENDADECARROS.Services.Database;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace INFNETPBVENDADECARROS.Pages
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         
