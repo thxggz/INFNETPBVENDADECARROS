@@ -1,0 +1,35 @@
+﻿@page
+@model INFNETPBVENDADECARROS.Pages.IndexModel
+@{
+    ViewData["Title"] = "Lista de Veículos";
+}
+
+<h1 class="mb-4">Veículos à Venda</h1>
+
+<div class="row">
+    @if (Model.Veiculos != null && Model.Veiculos.Any())
+    {
+        foreach (var veiculo in Model.Veiculos)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm position-relative">
+                    <a href="/Details/@veiculo.VeiculoId" class="stretched-link"></a> <!-- Link invisível para tornar o card clicável -->
+                    <img src="@veiculo.ImagemUri" class="card-img-top" alt="Imagem do veículo" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">@veiculo.Nome</h5>
+                        <p class="card-text">@veiculo.Descricao</p>
+                        <p class="card-text text-success fw-bold">R$ @veiculo.Preco.ToString("N2")</p>
+                        @if (veiculo.EntregaExpressa)
+                        {
+                            <span class="badge bg-warning text-dark">Entrega Expressa</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p class="text-muted">Nenhum veículo cadastrado ainda.</p>
+    }
+</div>

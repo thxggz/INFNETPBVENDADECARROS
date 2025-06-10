@@ -1,0 +1,27 @@
+﻿@page "{id:int}"
+@model INFNETPBVENDADECARROS.Pages.DetailsModel
+@{
+    ViewData["Title"] = "Detalhes do Veículo";
+}
+
+<h1 class="mb-4">Detalhes do Veículo</h1>
+
+<div class="card mb-4 shadow">
+    <img src="@Model.Veiculo.ImagemUri" class="card-img-top" style="max-height: 300px; object-fit: cover;" />
+    <div class="card-body">
+        <h4 class="card-title">@Model.Veiculo.Nome</h4>
+        <p class="card-text">@Model.Veiculo.Descricao</p>
+        <p class="card-text"><strong>Preço:</strong> R$ @Model.Veiculo.Preco.ToString("N2")</p>
+        <p class="card-text"><strong>Data de Cadastro:</strong> @Model.Veiculo.DataCadastro.ToString("dd/MM/yyyy")</p>
+        <p class="card-text">
+            <strong>Entrega Expressa:</strong>
+            @(Model.Veiculo.EntregaExpressa ? "Sim" : "Não")
+        </p>
+
+        <form method="post">
+            <input type="hidden" name="id" value="@Model.Veiculo.VeiculoId" />
+            <button type="submit" asp-page-handler="Excluir" class="btn btn-danger">Excluir Veículo</button>
+            <a href="/Index" class="btn btn-secondary ms-2">Voltar</a>
+        </form>
+    </div>
+</div>

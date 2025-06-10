@@ -1,0 +1,45 @@
+﻿@page
+@model INFNETPBVENDADECARROS.Pages.CreateModel
+@{
+	ViewData["Title"] = "Adicionar";
+}
+<h2>Adicionar Novo Veículo</h2>
+
+<form method="post">
+    <div>
+        <label asp-for="Veiculo.Nome"></label>
+        <input asp-for="Veiculo.Nome" class="form-control" />
+        <span asp-validation-for="Veiculo.Nome" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Veiculo.Descricao"></label>
+        <textarea asp-for="Veiculo.Descricao" class="form-control"></textarea>
+        <span asp-validation-for="Veiculo.Descricao" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Veiculo.Preco"></label>
+        <input asp-for="Veiculo.Preco" type="number" step="0.01" class="form-control" />
+        <span asp-validation-for="Veiculo.Preco" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Veiculo.EntregaExpressa"></label>
+        <input asp-for="Veiculo.EntregaExpressa" type="checkbox" />
+        <span asp-validation-for="Veiculo.EntregaExpressa" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Veiculo.DataCadastro"></label>
+        <input asp-for="Veiculo.DataCadastro" type="date" class="form-control" />
+        <span asp-validation-for="Veiculo.DataCadastro" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Veiculo.ImagemUri"></label>
+        <input asp-for="Veiculo.ImagemUri" class="form-control" />
+        <span asp-validation-for="Veiculo.ImagemUri" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
